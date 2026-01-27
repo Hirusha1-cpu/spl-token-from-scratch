@@ -1,0 +1,59 @@
+# =============================================================================
+# TOKEN PROGRAM CRATE CONFIGURATION
+# =============================================================================
+
+[package]
+name = "spl_token_from_scratch"
+description = "SPL Token Program built from scratch - educational implementation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+# =============================================================================
+# LIBRARY CONFIGURATION
+# =============================================================================
+
+[lib]
+# crate-type specifies what kind of output to produce
+crate-type = ["cdylib", "lib"]
+
+# cdylib = C-compatible dynamic library
+#   - This produces the .so file that Solana loads
+#   - Required for on-chain deployment
+#
+# lib = Standard Rust library
+#   - Used for tests and other Rust code
+#   - Allows importing this crate
+
+# =============================================================================
+# FEATURES
+# =============================================================================
+
+[features]
+# no-entrypoint: Excludes the entrypoint when this crate is used as dependency
+# Use case: Another program wants to CPI into our program
+# Without this, they'd get "multiple entrypoints" error
+no-entrypoint = []
+
+# test-sbf: Feature for SBF-specific test configuration
+test-sbf = []
+
+# =============================================================================
+# DEPENDENCIES
+# =============================================================================
+
+[dependencies]
+# Inherit from workspace (uses same versions)
+solana-program.workspace = true
+thiserror.workspace = true
+num-traits.workspace = true
+arrayref.workspace = true
+
+# =============================================================================
+# DEV DEPENDENCIES (only for tests)
+# =============================================================================
+
+[dev-dependencies]
+solana-program-test.workspace = true
+solana-sdk.workspace = true
+tokio.workspace = true

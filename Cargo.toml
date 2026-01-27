@@ -1,0 +1,41 @@
+# =============================================================================
+# WORKSPACE CONFIGURATION
+# =============================================================================
+# This is the root Cargo.toml that defines our workspace.
+# A workspace allows multiple crates to share dependencies and build together.
+
+[workspace]
+# List of all crates in this workspace
+members = ["programs/token"]
+
+# Shared package metadata for all workspace members
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/yourusername/spl-token-from-scratch"
+authors = ["Your Name <your.email@example.com>"]
+
+# Shared dependencies - all crates use same versions
+# This prevents version conflicts and reduces compile time
+[workspace.dependencies]
+# Core Solana program library for on-chain programs
+solana-program = "1.18"
+
+# Testing framework for Solana programs
+solana-program-test = "1.18"
+
+# SDK for building transactions and interacting with Solana
+solana-sdk = "1.18"
+
+# Derive macro for creating error types
+thiserror = "1.0"
+
+# Numeric traits like CheckedAdd, CheckedSub
+num-traits = "0.2"
+
+# Macros for working with fixed-size byte arrays
+arrayref = "0.3"
+
+# Async runtime for tests
+tokio = { version = "1.35", features = ["full"] }
