@@ -3,7 +3,7 @@
 //! A Token Account holds tokens for a specific owner.
 //! It's like a wallet specifically for ONE token type.
 //!
-//! # Real World Analogy
+//! # Real World Analogies
 //!
 //! - Mint = Currency definition (e.g., "US Dollar")
 //! - Token Account = Bank account for that currency
