@@ -62,7 +62,7 @@ pub fn process(
     source.delegate = COption::some(*delegate_info.key);
     source.delegated_amount = amount;
 
-    // Save sources
+    // Save sourcess
     source.pack_into_slice(&mut source_info.data.borrow_mut())?;
 
     Ok(())
